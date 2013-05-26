@@ -7,6 +7,7 @@ Created on 2013-5-25
 from twisted.internet.protocol import Protocol, ClientFactory, defer
 from twisted.internet.selectreactor import SelectReactor
 from twisted.protocols.basic import LineReceiver
+import json
 
 reactor = SelectReactor()
 
@@ -16,10 +17,13 @@ class ViperConnectorServerProtocol(LineReceiver):
         
     def connectionMade(self):
         print 'clientconnectionMade'
-        self.sendLine("Hello1")
+        message = {}
+        message['name'] = 'connector-init'
+        self.sendLine(json.dumps(message))
     
     def connectionLost(self, reason):
         print 'clientconnectionLost'
+        reactor.stop()
         
     def lineReceived(self, line):
         print line
