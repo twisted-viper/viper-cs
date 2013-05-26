@@ -16,6 +16,7 @@ class ViperConnectorServerProtocol(LineReceiver):
         
     def connectionMade(self):
         print 'clientconnectionMade'
+        self.sendLine("Hello1")
     
     def connectionLost(self, reason):
         print 'clientconnectionLost'
