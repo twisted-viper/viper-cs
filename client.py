@@ -4,7 +4,7 @@ Created on 2013-5-25
 @author: wolf_m
 '''
 
-from twisted.internet.protocol import Protocol, ClientFactory, defer
+from twisted.internet.protocol import ClientFactory
 from twisted.internet.selectreactor import SelectReactor
 from twisted.protocols.basic import LineReceiver
 import json
