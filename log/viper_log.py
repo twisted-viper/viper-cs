@@ -6,7 +6,6 @@ Created on May 24, 2013
 
 
 from settings import LOG
-import datetime
 import logging
 import os
 import time

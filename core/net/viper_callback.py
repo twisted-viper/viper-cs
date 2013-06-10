@@ -3,6 +3,7 @@ Created on 2013-5-26
 
 @author: wolf_m
 '''
+from biz.BalanceServer import BanlanceServer
 from biz.MessageFactory import MESSAGE_ACTION
 from biz.connector_client import buildConnectonToBalanceServer
 from log.viper_log import ViperLogger
