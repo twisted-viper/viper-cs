@@ -1,0 +1,8 @@
+[INFO]	2013-06-10 09:52:04 Viper Balance Server selector type:<class 'twisted.internet.selectreactor.SelectReactor'>
+[DEBUG]	2013-06-10 09:52:04 Viper Balance Server Started
+[INFO]	2013-06-10 09:52:58 Viper Connector Server selector type:<class 'twisted.internet.selectreactor.SelectReactor'>
+[DEBUG]	2013-06-10 09:52:58 Viper Connector Server Started
+[INFO]	2013-06-10 10:00:20 Viper Connector Server selector type:<class 'twisted.internet.selectreactor.SelectReactor'>
+[DEBUG]	2013-06-10 10:00:20 Viper Connector Server Started
+[INFO]	2013-06-10 10:07:38 Viper Connector Server selector type:<class 'twisted.internet.selectreactor.SelectReactor'>
+[DEBUG]	2013-06-10 10:07:38 Viper Connector Server Started

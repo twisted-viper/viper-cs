@@ -1,15 +1,14 @@
+#coding:utf-8
 '''
-Created on 2013-5-25
+Created on 2013-6-10
 
 @author: wolf_m
 '''
-
+from settings import BANLANCE_SERVER_HOST, BANLANCE_SERVER_PORT
+from twisted.internet import reactor
 from twisted.internet.protocol import ClientFactory
-from twisted.internet.selectreactor import SelectReactor
 from twisted.protocols.basic import LineReceiver
 import json
-
-reactor = SelectReactor()
 
 class ViperConnectorServerProtocol(LineReceiver):
     def __init__(self):
@@ -23,22 +22,15 @@ class ViperConnectorServerProtocol(LineReceiver):
     
     def connectionLost(self, reason):
         print 'clientconnectionLost'
-        reactor.stop()
         
     def lineReceived(self, line):
         print line
         
 class ConnectionTestFactory(ClientFactory):
     def buildProtocol(self, addr):
-        return ViperConnectorServerProtocol()
-        
-def testConnect(host, port):
-    testFactory = ConnectionTestFactory()
-    reactor.connectTCP(host, port, testFactory)
-
+        return ViperConnectorServerProtocol()  
     
-if __name__ == "__main__":
-    connecting = testConnect('127.0.0.1', 55024)
-#    connecting.addCallback(handleSuccess, 55024)
-#    connecting.addErrback(handleFailure, 55024)
-    reactor.run()
+
+def buildConnectonToBalanceServer():
+    testFactory = ConnectionTestFactory()
+    reactor.connectTCP(BANLANCE_SERVER_HOST, BANLANCE_SERVER_PORT, testFactory)
