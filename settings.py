@@ -7,6 +7,8 @@ Created on May 24, 2013
 import logging
 import os
 
+DEBUG = True 
+
 BANLANCE_SERVER_HOST = '127.0.0.1'
 BANLANCE_SERVER_PORT = 55024
 
