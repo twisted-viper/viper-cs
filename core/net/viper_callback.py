@@ -3,11 +3,15 @@ Created on 2013-5-26
 
 @author: wolf_m
 '''
-from biz.BalanceServer import BanlanceServer
+
+
 from biz.MessageFactory import MESSAGE_ACTION
+from biz.ViperClient import ViperClient
+from biz.ViperClientGroup import ViperClientGroup
 from biz.connector_client import buildConnectonToBalanceServer
 from log.viper_log import ViperLogger
 import json
+
 
 
 logger = ViperLogger.getLogger()
@@ -18,7 +22,8 @@ def onViperConnectorServerRunning():
     buildConnectonToBalanceServer()
     
 def onConectorConnectionMade(protocol): 
-    logger.debug('Conector connection made ')
+    logger.debug('Client connection made')
+    ViperClientGroup.getInstance().addClient(ViperClient(protocol));
 
 def onConectorConnectionLost(protocol, reason):
     connectorId = str(protocol.transport.getPeer())

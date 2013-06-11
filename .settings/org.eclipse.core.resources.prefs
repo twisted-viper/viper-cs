@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//biz/ViperClient.py=utf-8
+encoding//biz/ViperClientGroup.py=utf-8
 encoding//biz/connector_client.py=utf-8
 encoding//core/net/viper_server.py=utf-8
 encoding/cs_start.py=utf-8

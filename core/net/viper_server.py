@@ -6,7 +6,9 @@ Created on May 24, 2013
 '''
 
 
-from biz.util.handy import sendIntervalPing2BanlanceServer
+
+
+from biz import BalanceServer
 from core.net.viper_callback import onConectorConnectionMade, \
     onConectorConnectionLost, onLineReceived, onViperConnectorServerRunning
 from log.viper_log import ViperLogger
@@ -14,6 +16,7 @@ from settings import SERVER_PORT
 from twisted.internet import reactor
 from twisted.internet.protocol import Factory
 from twisted.protocols.basic import LineReceiver
+
 
 
 try:
@@ -61,6 +64,6 @@ class ViperConnectorServer():
         logger.info('Viper Connector Server selector type:' + str(type(reactor)))
         reactor.listenTCP(SERVER_PORT, ViperConnectorServerFactory())
         reactor.callWhenRunning(onViperConnectorServerRunning)
-        reactor.callWhenRunning(sendIntervalPing2BanlanceServer)
+        reactor.callWhenRunning(BalanceServer.BanlanceServer.sendIntervalPing)
         reactor.run()
     
